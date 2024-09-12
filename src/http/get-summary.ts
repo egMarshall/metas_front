@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 type SummaryResponse = {
   completed: number;
   total: number;
@@ -16,8 +18,7 @@ export async function getSummary(): Promise<SummaryResponse> {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6ImVtdXBlMW94dnF1ZnNjY2JqeHdnajQyMyJ9LCJpYXQiOjE3MjYxODI5ODksImV4cCI6MTcyNjE4NjU4OX0.TyvT1N9UC6vc2T0LgLjpYRNkZSAYFViuGnUO2KS8ecE",
+      Authorization: `${env.VITE_USER_TOKEN}`,
     },
   });
   const data = await response.json();

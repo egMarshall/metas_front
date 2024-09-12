@@ -1,3 +1,5 @@
+import { env } from "../env";
+
 type PendingGoalsResponse = {
   id: string;
   title: string;
@@ -10,8 +12,7 @@ export async function getPendingGoals(): Promise<PendingGoalsResponse> {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6ImVtdXBlMW94dnF1ZnNjY2JqeHdnajQyMyJ9LCJpYXQiOjE3MjYxODI5ODksImV4cCI6MTcyNjE4NjU4OX0.TyvT1N9UC6vc2T0LgLjpYRNkZSAYFViuGnUO2KS8ecE",
+      Authorization: `${env.VITE_USER_TOKEN}`,
     },
   });
 
