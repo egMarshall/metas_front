@@ -14,7 +14,7 @@ type SummaryResponse = {
 };
 
 export async function getSummary(): Promise<SummaryResponse> {
-  const response = await fetch("http://localhost:3333/goals-summary", {
+  const response = await fetch(`${env.VITE_API_URL}/goals-summary`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
